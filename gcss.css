@@ -2,7 +2,6 @@
     height: 12in;
     width: 15in;
     border: 1px solid;
-    background-image: url('bg.jpg');
 }
 
 tr{
@@ -21,8 +20,8 @@ td{
 img{
     margin-left: auto;
     margin-right: auto;
-    height: 100px;
-    width: 100px;
+    height: 100;
+    width: 100;
 }
 
 #gamePanel{
