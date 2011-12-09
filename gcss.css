@@ -1,1 +1,43 @@
-//gcss
+#samp{
+    height: 12in;
+    width: 15in;
+    border: 1px solid;
+    background-image: url('bg.jpg');
+}
+
+tr{
+    height: 3in;
+    width: 3in;
+    vertical-align: middle;
+}
+
+td{
+    height: 3in;
+    width: 3in;
+    vertical-align: middle;
+}
+
+
+img{
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    width: 100px;
+}
+
+#gamePanel{
+    border: 1px solid;
+    width: 15in;
+    height: 1in;
+    background-color: black;
+    color: #FF0F00;
+}
+
+#miscPanel{
+    border: 1px solid;
+    width: 15in;
+    height: 1in;
+    background-color: black;
+    color: #FF0F00;
+}
+
