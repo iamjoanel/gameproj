@@ -53,6 +53,29 @@ section#gamepanel {
 section#gamepanel h1 {
     color: #fff;
     text-align: center;
+    display: inline;
+    font-size: 25px;
+    padding: 10px;
+}
+
+section#gamepanel input {
+    display: inline;
+    font-size: 25px;
+    padding: 10px;
+}
+
+section#gamepanel input#start {
+    border-radius: 7px;
+    background-color: red;
+    color: white;
+}
+
+section#gamepanel input#time {
+    background-color: #2d2d2d;
+    border-color: #2d2d2d;
+    color:white;
+    float: right;
+    font-family: mono;
 }
 
 section#miscpanel {

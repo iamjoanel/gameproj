@@ -23,9 +23,10 @@ function showImages(){
 function dis(){
     $('img').click(function(){
 	   clearTimeout(m);
-	   $(this).fadeOut("fast");
-       $('section#gamepanel > section h1#score').html('Score: ' + (score+=1));
+	   $(this).fadeOut("fast", function() {
+        $('section#gamepanel span#score').html(score+=1);   
        });
+    });
     
     setTimeout("dis()",2000);
 }   
@@ -67,18 +68,10 @@ $(document).ready(function () {
     });
 
     //timer on load method
-     $('h1#start').click(function () {
+     $('input#start').click(function () {
         kaBom();
         showImages();
         dis();    
-    });
-    
-    $('h1#reset').click(function () {
-    clearTimeout(timerOut);
-    document.getElementById('time').value = "2 : 00";
-    mins = 2;
-    sec = 59;
-        $('body').css("background-color","white");
     });
     //end of timer on load
 });
