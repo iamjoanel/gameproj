@@ -1,6 +1,6 @@
 var min=0,sec=0;
 var m;
-
+    var score = 0;
 
 function showImages(){
     var num1 = Math.floor(0 + (1+2-0)*Math.random());
@@ -20,16 +20,25 @@ function showImages(){
     
 
 }
+
 function dis(){
     $('img').click(function(){
-	clearTimeout(m);
-	$(this).fadeOut("slow");
-    });
+	   clearTimeout(m);
+	   $(this).fadeOut("fast");
+       $('section#gamepanel > section h1').html('Score: ' + (score+=1));
+       });
+    
     setTimeout("dis()",2000);
 }
 
 $(document).ready(function () {
     showImages();
     dis();
+
+    $('section#gamearea').hover(function() {
+        $(this).css('cursor','crosshair');
+            }, function() {
+        $(this).css('cursor','auto');
+    });
 });
 
