@@ -1,6 +1,5 @@
-var min=0,sec=0;
+var score = 0;
 var m;
-    var score = 0;
 
 function showImages(){
     var num1 = Math.floor(0 + (1+2-0)*Math.random());
@@ -25,20 +24,62 @@ function dis(){
     $('img').click(function(){
 	   clearTimeout(m);
 	   $(this).fadeOut("fast");
-       $('section#gamepanel > section h1').html('Score: ' + (score+=1));
+       $('section#gamepanel > section h1#score').html('Score: ' + (score+=1));
        });
     
     setTimeout("dis()",2000);
+}   
+
+// code for the timer
+var mins = 2;
+var sec = 0;
+var timerOut;
+
+function kaBom(){
+    if(sec>=10){
+        document.getElementById('time').value = mins +" : "+sec;
+    }else{
+        document.getElementById('time').value = mins +" : 0"+sec;
+    }
+    if(mins>=0 && sec>0){
+        sec--;
+    }
+    if(sec==0){
+        if(mins>0){
+            mins--;
+            sec=59;
+        }
+    }
+    timerOut = setTimeout("kaBom()",1000);
+    
+    if(document.getElementById('time').value == "0 : 00"){
+        $('body').css("background-image","url('./images/bg.jpg')")
+    }
 }
 
-$(document).ready(function () {
-    showImages();
-    dis();
+//end of timer code
 
+$(document).ready(function () {
     $('section#gamearea').hover(function() {
         $(this).css('cursor','crosshair');
             }, function() {
         $(this).css('cursor','auto');
     });
+
+    //timer on load method
+     $('h1#start').click(function () {
+        kaBom();
+        showImages();
+        dis();    
+    });
+    
+    $('h1#reset').click(function () {
+    clearTimeout(timerOut);
+    document.getElementById('time').value = "2 : 00";
+    mins = 2;
+    sec = 59;
+        $('body').css("background-color","white");
+    });
+    //end of timer on load
 });
 
