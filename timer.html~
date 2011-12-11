@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<head>
+  <script src="./scripts/jquery.js"></script>
+  <script>
+    
+  </script>
+</head>
+
+<body>
+  <input type="textField" readOnly id="time" >
+</body>
+</html>
