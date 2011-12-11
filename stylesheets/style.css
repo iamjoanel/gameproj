@@ -1,0 +1,76 @@
+/* Overrides */
+body {
+    background: #fff;
+}
+
+header#topbar {
+    color: #fff;
+    background: #2d2d2d;
+    padding: 15px;
+    width: 100%;
+    text-align:center;
+}
+
+header#topbar > h1 {
+    font-family: Helvetica;
+    font-size: 30px;
+    color: #fff;
+    display: inline;
+}
+
+table {
+    table-layout: fixed;
+    width: 950px;
+}
+
+table tr {
+    height: 50px;
+}
+
+table td {
+    width: 50px;
+}
+
+tbody, tr, th, td{
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;    
+}
+
+/* A hack to override the zebra styling on tables */
+tbody tr:nth-child(even) td, tbody tr.even td {
+    background-color:transparent;
+}
+
+section#gamepanel {
+    background-color: #2d2d2d;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    border-style: solid;
+}
+
+section#gamepanel h1 {
+    color: #fff;
+    text-align: center;
+}
+
+section#miscpanel {
+    text-align: center;
+    background-color: grey;
+}
+
+section#miscpanel nav, ul, li {
+    display: inline;
+    padding: 15px;
+}
+
+section#miscpanel a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+}
+
+section#miscpanel a:hover {
+    color: red;
+}
