@@ -1,7 +1,7 @@
 var score = 0;
 var m, n;
 var isRunning = false;
-var easy = "true";
+var easy = true;
 
 function showImages(){
     var num1 = Math.floor(0 + (1+2-0)*Math.random());
@@ -29,22 +29,22 @@ function dis(){
         //clearTimeout(m);
         if(isRunning) {
             $(this).hide("fast", function() {
-            if(parseInt($('section#gamepanel span#score').html()) >= 9) {
+            if(easy == true && parseInt($('section#gamepanel span#score').html()) >= 9) {
                 clearTimeout(m);
                 clearTimeout(timerOut);
                 clearTimeout(n);
                 isRunning = false;
-                $('section#gamepanel span#score').html('10');
-                if(easy) {
-                    alert('Press okay to proceed to hard mode.');
-                    level2();
-                } else {
-                    alert('You have finished the game!')        
-                }
+                $('section#gamepanel span#score').html('0');
+                alert('Press okay to proceed to hard mode.');
+                level2();
             } else {
                 $('section#gamepanel span#score').html(score+=1);
                 $(this).remove();
             }  
+
+            if(!easy && parseInt($('section#gamepanel span#score').html()) >= 14) {
+                   alert('You have finished the game!'); 
+            } 
            });
         }
     });
@@ -53,13 +53,11 @@ function dis(){
 }   
 
 function level2() {
+    score = 0;
     $('span#level').html('hard');
     $('span#ammo').html('10');
     $('span#score').html('0');
-    clearTimeout(m);
-    clearTimeout(timerOut);
-    clearTimeout(n);
-     //easy = false;
+     easy = false;
      isRunning = true;
      showImages();
      dis();  
