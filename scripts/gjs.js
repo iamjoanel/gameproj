@@ -59,24 +59,25 @@ function kaBom(){
     timerOut = setTimeout("kaBom()",1000);
     
     if(document.getElementById('time').value == "0 : 00"){
-        $('body').css("background-image","url('./images/bg.jpg')");
-        isRunning = false;
+	$('body').css("background-image","url('./images/go.jpg')").css("background-repeat","no-repeat").css("background-size","100% 100%");
+           isRunning = false;
     }
 }
 
 //end of timer code
 
 $(document).ready(function () {
+    $('body').css("background-image","url('./images/bg.jpg')").css("background-repeat","no-repeat").css("background-size","100% 100%");
     $('section#gamearea').hover(function() {
         $(this).css('cursor','crosshair');
-            }, function() {
+    }, function() {
         $(this).css('cursor','auto');
     });
-
+    
     $('section#gamearea tbody').click(function () {
         if(parseInt($('section#gamepanel span#ammo').text()) <= 0) {
-            $('body').css("background-image","url('./images/bg.jpg')");
-            clearTimeout(m);
+	    $('body').css("background-image","url('./images/go.jpg')").css("background-repeat","no-repeat").css("background-size","100% 100%");
+	    clearTimeout(m);
             clearTimeout(timerOut);
             clearTimeout(n);
             isRunning = false;

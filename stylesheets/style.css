@@ -1,8 +1,4 @@
 /* Overrides */
-body {
-    background: #fff;
-}
-
 header#topbar {
     color: #fff;
     background: #2d2d2d;
@@ -20,15 +16,18 @@ header#topbar > h1 {
 
 table {
     table-layout: fixed;
-    width: 950px;
+     width: 15in;
+     height: 12in;
 }
 
 table tr {
-    height: 50px;
+    height: 3in;
+    vertical-align: middle;
 }
 
 table td {
-    width: 50px;
+    width: 3in;
+    vertical-align: middle;
 }
 
 tbody, tr, th, td{
@@ -92,8 +91,17 @@ section#miscpanel a {
     text-decoration: none;
     color: white;
     font-size: 15px;
+    position-bottom: 10px;
 }
 
 section#miscpanel a:hover {
     color: red;
 }
+
+img{
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    width: 100px;
+}
+
