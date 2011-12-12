@@ -14,19 +14,19 @@ header#topbar > h1 {
     display: inline;
 }
 
+
 table {
-    table-layout: fixed;
-     width: 15in;
-     height: 12in;
+    width: 100%;
+    height: 100%;
 }
 
 table tr {
-    height: 3in;
+    height: 2.5in;
     vertical-align: middle;
-}
+ }
 
 table td {
-    width: 3in;
+    width: 2in;
     vertical-align: middle;
 }
 
@@ -37,7 +37,7 @@ tbody, tr, th, td{
 }
 
 /* A hack to override the zebra styling on tables */
-tbody tr:nth-child(even) td, tbody tr.even td {
+tbody tr:nth-child(even) td, tbody tr.even td{
     background-color:transparent;
 }
 
@@ -101,7 +101,7 @@ section#miscpanel a:hover {
 img{
     margin-left: auto;
     margin-right: auto;
-    height: 100px;
-    width: 100px;
+    height: 90%;
+    width: 90%;
 }
 

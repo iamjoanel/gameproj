@@ -10,7 +10,7 @@ function showImages(){
     var im = ["z1.png","z2.png","z3.png"];
     var img1 = im[num1];
     
-    var loca = ["t1A","t1B","t1C","t1D","t1E","t2A","t2B","t2C","t2D","t2E","t3A","t3B","t3C","t3D","t3E","t4A","t4B","t4C","t4D","t4E",];
+    var loca = ["t1A","t1B","t1C","t1D","t1E","t2A","t2B","t2C","t2D","t2E"];
     var loc1 = loca[numL1];
 
    
