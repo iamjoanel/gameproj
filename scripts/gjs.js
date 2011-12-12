@@ -15,8 +15,10 @@ function showImages(){
     var loc1 = loca[numL1];
 
    
-    $('td#'+loc1).html("<img src='./images/"+img1+"'>").show("fast", function() {
-        $(this).fadeOut(5000);
+    $('td#'+loc1).html("<img src='./images/"+img1+"' id='"+img1+"'>").show("fast", function() {
+        $(this).fadeOut(3000, function() {
+            $('img#'+img1).remove();
+        });
     });
     
     var m = setTimeout("showImages()",1500);
@@ -24,15 +26,16 @@ function showImages(){
 
 function dis(){
     $('img').click(function(){
-	   clearTimeout(m);
-       if(isRunning && $(this).is(':visible')) {
-    	   $(this).fadeOut("fast", function() {
-            $('section#gamepanel span#score').html(score+=1);   
+        clearTimeout(m);
+        if(isRunning) {
+            $(this).hide("fast", function() {
+            $('section#gamepanel span#score').html(score+=1);
+            $(this).remove();  
            });
         }
     });
-    
-    var n = setTimeout("dis()",2000);
+ 
+   var n = setTimeout("dis()",1500);
 }   
 
 // code for the timer
@@ -78,7 +81,7 @@ $(document).ready(function () {
 	       $('body').css("background-image","url('./images/go.jpg')").css("background-repeat","no-repeat").css("background-size","100% 100%");
 	       clearTimeout(m);
             clearTimeout(timerOut);
-            clearTimeout(n);
+           clearTimeout(n);
             isRunning = false;
         } else if(!isRunning) {
             //do nothing
