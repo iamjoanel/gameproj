@@ -16,7 +16,7 @@ function showImages(){
    
     $('td#'+loc1).html("<img src='./images/"+img1+"'>").show("fast", function() {
         $(this).fadeOut(2000, function() {
-            $(this).remove();
+            $('td#'+loc1 + ' img').remove();
         });
     });
     
