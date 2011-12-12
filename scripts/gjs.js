@@ -12,9 +12,13 @@ function showImages(){
     
     var loca = ["t1A","t1B","t1C","t1D","t1E","t2A","t2B","t2C","t2D","t2E","t3A","t3B","t3C","t3D","t3E","t4A","t4B","t4C","t4D","t4E",];
     var loc1 = loca[numL1];
-    
-    $('td#'+loc1).html("<img src='./images/"+img1+"'>").show("slow");
-    
+
+   
+    $('td#'+loc1).html("<img src='./images/"+img1+"'>").show("fast", function() {
+        $(this).fadeOut(2000, function() {
+            $(this).remove();
+        });
+    });
     
     var m = setTimeout("showImages()",2000);
     
@@ -29,7 +33,7 @@ function dis(){
        });
     });
     
-    setTimeout("dis()",2000);
+    var n = setTimeout("dis()",2000);
 }   
 
 // code for the timer
@@ -70,8 +74,21 @@ $(document).ready(function () {
     });
 
     $('section#gamearea tbody').click(function () {
-        if(isRunning)
-        $('section#gamepanel span#ammo').html(parseInt($('section#gamepanel span#ammo').text()) - 1);
+        if(parseInt($('section#gamepanel span#ammo').text()) <= 0) {
+            $('body').css("background-image","url('./images/bg.jpg')");
+            clearTimeout(m);
+            clearTimeout(timerOut);
+            clearTimeout(n);
+            isRunning = false;
+        } else if(!isRunning) {
+            //do nothing
+        } else {
+            $('section#gamepanel span#ammo').html(parseInt($('section#gamepanel span#ammo').text()) - 1);
+        }
+    });
+
+    $('img#lucky').click(function() {
+       $('section#gamepanel span#ammo').html(parseInt($('section#gamepanel span#ammo').text()) + 2); 
     });
 
     //timer on load method
