@@ -1,6 +1,7 @@
 var score = 0;
 var m;
 var isRunning = false;
+var easy = "true";
 
 function showImages(){
     var num1 = Math.floor(0 + (1+2-0)*Math.random());
@@ -15,30 +16,28 @@ function showImages(){
 
    
     $('td#'+loc1).html("<img src='./images/"+img1+"'>").show("fast", function() {
-        $(this).fadeOut(2000, function() {
-            $('td#'+loc1 + ' img').remove();
-        });
+        $(this).fadeOut(5000);
     });
     
-    var m = setTimeout("showImages()",2000);
-    
-
+    var m = setTimeout("showImages()",1500);
 }
 
 function dis(){
     $('img').click(function(){
 	   clearTimeout(m);
-	   $(this).fadeOut("fast", function() {
-        $('section#gamepanel span#score').html(score+=1);   
-       });
+       if(isRunning && $(this).is(':visible')) {
+    	   $(this).fadeOut("fast", function() {
+            $('section#gamepanel span#score').html(score+=1);   
+           });
+        }
     });
     
     var n = setTimeout("dis()",2000);
 }   
 
 // code for the timer
-var mins = 2;
-var sec = 0;
+var mins = 0;
+var sec = 30;
 var timerOut;
 
 function kaBom(){
@@ -76,8 +75,8 @@ $(document).ready(function () {
     
     $('section#gamearea tbody').click(function () {
         if(parseInt($('section#gamepanel span#ammo').text()) <= 0) {
-	    $('body').css("background-image","url('./images/go.jpg')").css("background-repeat","no-repeat").css("background-size","100% 100%");
-	    clearTimeout(m);
+	       $('body').css("background-image","url('./images/go.jpg')").css("background-repeat","no-repeat").css("background-size","100% 100%");
+	       clearTimeout(m);
             clearTimeout(timerOut);
             clearTimeout(n);
             isRunning = false;
@@ -86,10 +85,6 @@ $(document).ready(function () {
         } else {
             $('section#gamepanel span#ammo').html(parseInt($('section#gamepanel span#ammo').text()) - 1);
         }
-    });
-
-    $('img#lucky').click(function() {
-       $('section#gamepanel span#ammo').html(parseInt($('section#gamepanel span#ammo').text()) + 2); 
     });
 
     //timer on load method

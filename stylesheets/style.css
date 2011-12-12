@@ -14,6 +14,12 @@ header#topbar > h1 {
     display: inline;
 }
 
+header span#level {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+}
+
 
 table {
     width: 100%;
