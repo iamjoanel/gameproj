@@ -1,5 +1,5 @@
 var score = 0;
-var m;
+var m, n;
 var isRunning = false;
 var easy = "true";
 
@@ -21,26 +21,57 @@ function showImages(){
         });
     });
     
-    var m = setTimeout("showImages()",1500);
+    m = setTimeout("showImages()",1500);
 }
 
 function dis(){
     $('img').click(function(){
-        clearTimeout(m);
+        //clearTimeout(m);
         if(isRunning) {
             $(this).hide("fast", function() {
-            $('section#gamepanel span#score').html(score+=1);
-            $(this).remove();  
+            if(parseInt($('section#gamepanel span#score').html()) >= 9) {
+                clearTimeout(m);
+                clearTimeout(timerOut);
+                clearTimeout(n);
+                isRunning = false;
+                $('section#gamepanel span#score').html('10');
+                if(easy) {
+                    alert('Press okay to proceed to hard mode.');
+                    level2();
+                } else {
+                    alert('You have finished the game!')        
+                }
+            } else {
+                $('section#gamepanel span#score').html(score+=1);
+                $(this).remove();
+            }  
            });
         }
     });
  
-   var n = setTimeout("dis()",1500);
+   n = setTimeout("dis()",1500);
 }   
 
+function level2() {
+    $('span#level').html('hard');
+    $('span#ammo').html('10');
+    $('span#score').html('0');
+    clearTimeout(m);
+    clearTimeout(timerOut);
+    clearTimeout(n);
+     //easy = false;
+     isRunning = true;
+     showImages();
+     dis();  
+     mins = 1;
+     sec = 0;
+     document.getElementById('time').value = "1 : 00";
+     kaBom();
+}
+
 // code for the timer
-var mins = 0;
-var sec = 30;
+var mins = 1;
+var sec = 00;
 var timerOut;
 
 function kaBom(){
@@ -83,8 +114,9 @@ $(document).ready(function () {
             clearTimeout(timerOut);
            clearTimeout(n);
             isRunning = false;
-        } else if(!isRunning) {
-            //do nothing
+        }else if(!isRunning) {
+                //do nothing
+            
         } else {
             $('section#gamepanel span#ammo').html(parseInt($('section#gamepanel span#ammo').text()) - 1);
         }
@@ -92,6 +124,9 @@ $(document).ready(function () {
 
     //timer on load method
      $('input#start').click(function () {
+        if(timerOut)clearTimeout(timerOut);
+        if(m) clearTimeout(m);
+        if(n) clearTimeout(n);
         isRunning = true;
         kaBom();
         showImages();
