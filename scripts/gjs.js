@@ -1,5 +1,6 @@
 var score = 0;
 var m;
+var isRunning = false;
 
 function showImages(){
     var num1 = Math.floor(0 + (1+2-0)*Math.random());
@@ -54,7 +55,8 @@ function kaBom(){
     timerOut = setTimeout("kaBom()",1000);
     
     if(document.getElementById('time').value == "0 : 00"){
-        $('body').css("background-image","url('./images/bg.jpg')")
+        $('body').css("background-image","url('./images/bg.jpg')");
+        isRunning = false;
     }
 }
 
@@ -67,8 +69,14 @@ $(document).ready(function () {
         $(this).css('cursor','auto');
     });
 
+    $('section#gamearea tbody').click(function () {
+        if(isRunning)
+        $('section#gamepanel span#ammo').html(parseInt($('section#gamepanel span#ammo').text()) - 1);
+    });
+
     //timer on load method
      $('input#start').click(function () {
+        isRunning = true;
         kaBom();
         showImages();
         dis();    
